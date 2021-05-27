@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_27_080727) do
+ActiveRecord::Schema.define(version: 2021_05_27_111034) do
+
+  create_table "acts", force: :cascade do |t|
+    t.integer "contact_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.json "contributions"
+    t.index ["contact_id"], name: "index_acts_on_contact_id"
+  end
 
   create_table "contacts", force: :cascade do |t|
     t.string "name_first"
